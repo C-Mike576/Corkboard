@@ -37,7 +37,9 @@ class CreatePost extends React.Component {
         this.setState({
             username: "",
             content: ""
-        })
+        }) 
+        
+        
     }
 
     render() {
@@ -45,7 +47,7 @@ class CreatePost extends React.Component {
             <div className="newPostForm">
             <h1>Post to Corkboard</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Username:</label>
+                    <label>Name:</label>
                     <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.username} className="username" />
                     <br/>
                     <label>Content:</label>

@@ -2,7 +2,10 @@ import React from 'react'
  
 const Post = props => {
   return (
-    <li>{props.username}<br/>{props.content}</li>
+    <div>
+      <h4>{props.user}</h4>
+      <p>{props.text}</p>
+    </div>
   );
 };
  
