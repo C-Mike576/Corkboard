@@ -1,12 +1,15 @@
 import React from 'react'
  
-const Post = props => {
+function Post(props) {
+
   return (
-    <div>
-      <h4>{props.user}</h4>
-      <p>{props.text}</p>
+    <div className="note-card">
+      <h4>{props.post.username}</h4>
+      <p>{props.post.content}</p>
     </div>
   );
 };
  
 export default Post;
+
+//

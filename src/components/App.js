@@ -4,6 +4,7 @@ import CreatePosts from './posts/CreatePost';
 import PostContainer from './posts/PostContainer';
 
 class App extends React.Component {
+
     render() {
         return(
             <div>
@@ -13,6 +14,8 @@ class App extends React.Component {
         )
     }
 }
+
+
 
 
 

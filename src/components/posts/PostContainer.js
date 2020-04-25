@@ -1,28 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Post from './Post';
-import { v4 as uuidv4 } from 'uuid';
+import { fetchPosts } from '../../actions/postActions';
+
 
 
 class PostContainer extends React.Component {
-    
-    renderPosts = () =>
-        this.props.posts.map((post) =>
-            <Post key={uuidv4()} text={post.content} user={post.username} />
-    )
+
+    componentDidMount(){
+        this.props.dispatch(fetchPosts())
+    }
+  
 
     render() {
-        return(
-            <div>
-                {this.renderPosts()}
-            </div>
-        )
+       return(
+           <div>
+               {!this.props.posts ? <h4>Loading...</h4> :
+                this.props.posts.map( p => 
+            <Post key={p.id} post={p}/>)}
+           </div>
+       )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        posts: state.posts
+        posts: state.posts.data,
+        
     }
 }
 

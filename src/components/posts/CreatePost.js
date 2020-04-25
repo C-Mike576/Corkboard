@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { pushNewPost } from '../../actions/postActions';
 
 class CreatePost extends React.Component {
 
@@ -33,7 +34,7 @@ class CreatePost extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addPost(this.state)
+        pushNewPost(this.state)
         this.setState({
             username: "",
             content: ""
@@ -62,8 +63,9 @@ class CreatePost extends React.Component {
     
 }
 
-const mapDispatchToProps = dispatch => ({
-    addPost: formData => dispatch({ type: 'ADD_POST', payload: formData })
-})
+// const mapDispatchToProps = dispatch => ({
+//     addPost: formData => dispatch({ type: 'ADD_POST', payload: formData })
+// })
 
-export default connect(null, mapDispatchToProps)(CreatePost)
+export default connect()(CreatePost)
+
