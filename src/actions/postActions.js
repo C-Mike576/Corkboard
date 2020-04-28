@@ -19,9 +19,16 @@ export function fetchPosts() {
 }
 
 export function pushNewPost(newPost) {
-    Axios({
-        method: 'post',
-        url: 'http://localhost:4000/posts',
-        data: newPost
-    })
+    return function(dispatch) {
+        Axios({
+            method: 'post',
+            url: 'http://localhost:4000/posts',
+            data: newPost
+        }).then(res => { 
+            dispatch({
+                type: "ADD_POST",
+                payload: res.data
+            })
+        })
+    }
 }

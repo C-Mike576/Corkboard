@@ -34,13 +34,11 @@ class CreatePost extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        pushNewPost(this.state)
+        this.props.dispatch(pushNewPost(this.state))
         this.setState({
             username: "",
             content: ""
-        }) 
-        
-        
+        })    
     }
 
     render() {
@@ -62,6 +60,12 @@ class CreatePost extends React.Component {
     
     
 }
+
+// const mapStateToProps = state => {
+//     return {
+//         posts: state.posts.data
+//     }
+// }
 
 // const mapDispatchToProps = dispatch => ({
 //     addPost: formData => dispatch({ type: 'ADD_POST', payload: formData })

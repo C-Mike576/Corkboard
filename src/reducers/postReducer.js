@@ -20,9 +20,11 @@ export default function postReducer(state={
                 posts: action.payload
             }
         }
+        //??????
         case "ADD_POST": {
             return {
-                ...state, posts: [...state.posts, action.payload]
+                ...state, 
+                posts: [...state.posts, action.payload]
             }
         }
         case "UPDATE_POST": {
